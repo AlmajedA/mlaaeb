@@ -17,7 +17,7 @@ const Navbar = () => {
                     </li>
     
                 </ul>
-                <div class="container-fluid d-flex justify-content-center">
+                <div className="container-fluid d-flex justify-content-center">
                     <form action="/search" method = 'GET' className='d-flex justify-content-center w-50' role={'search'}>
                     <select name="court-type" id="court-type" className={'form-select me-2'}>
                         <option value="football">Football</option>
