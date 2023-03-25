@@ -1,11 +1,17 @@
-import styles from '../styles/Home.module.css'
+
+import Link from 'next/link'
 
 const Footer = () => {
     return ( 
-        <footer className={styles.footer}>
-            
-            Copyright 2023 MLAAEB
-            
+        <footer className='d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top'>
+            <h5>
+        
+                <p>Copyright 2023 MLAAEB</p>
+                <Link href="/about" className='nav-link'>About</Link>
+        
+            </h5>      
+
+
         </footer>
      );
 }
