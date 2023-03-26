@@ -2,6 +2,7 @@ import { useState } from 'react';
 // import Img from './Img';
 import Image from 'next/image'
 import styles from '../styles/Login.module.css';
+import Link from 'next/link';
 
 
 const LoginBox = () => {
@@ -34,25 +35,27 @@ const LoginBox = () => {
     <>
         <form onSubmit={handleSubmit} className={styles.loginForm}>
         <Image
-          src='/../public/logo.png'
+          src='/LOGO_without_caption.png'
           alt='logo'
           width={'100'}
           height={'100'}
         />
         <h1>Login</h1>
         {error && <p style={{ color: 'red' }}>{error}</p>}
-        <label>
+        <label htmlFor='username'>
             Username:
-            <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
         </label>
+        <input type="text" value={username} name='username' onChange={(e) => setUsername(e.target.value)} />
         <br />
-        <label>
+        <label htmlFor='password'>
             Password:
-            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
         </label>
+        <input type="password" name='password' value={password} onChange={(e) => setPassword(e.target.value)} />
         <br />
         <button type="submit">Login</button>
+        <p>Don't have account? <Link href='/registration/signup'>create account</Link></p>
         </form>
+        
     </>
   );
 }

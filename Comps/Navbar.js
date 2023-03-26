@@ -32,7 +32,7 @@ const Navbar = () => {
 
                 <div className="d-flex w-25">
 
-                    <button className='btn btn-success'>Login / Sign in</button>
+                    <Link className='btn btn-success' href='/registration/login'>Sign in</Link>
 
 
                 </div>

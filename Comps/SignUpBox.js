@@ -1,4 +1,5 @@
 import styles from '../styles/Login.module.css';
+import Link from 'next/link';
 
 const SignUpBox = ()=> {
   return (
@@ -12,6 +13,7 @@ const SignUpBox = ()=> {
         <label htmlFor="confirm-password">Confirm Password:</label>
         <input type="password" id="confirm-password" name="confirm-password" />
         <button type="submit">Sign Up</button>
+        <p>Already have account? <Link href='/registration/login'>Sign in</Link></p>
       </form>
     </>
   );
