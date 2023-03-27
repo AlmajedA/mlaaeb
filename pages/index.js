@@ -29,7 +29,7 @@ export default function Home() {
 
           <div className="carousel-inner">
             <div className="carousel-item active">
-              <Image src="/wallpaper.jpeg" className="d-block w-100 m-auto" alt="..." width={512} height={512}/>
+              <Image src="/wallpaper.jpeg" className="d-block w-100 m-auto" alt="..." width={512} height={512 + 128}/>
               <div className="carousel-caption h-50">
                 <h5>Welcome to <b>MLAAEB</b>!</h5>
                 <p>The best place to reserve a court and enjoy your time with your family and friends</p>

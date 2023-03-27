@@ -9,9 +9,9 @@ const Search = () => {
             <title>MLAAEB | Courts</title>
             <meta name='keywords' content='Court Reservation'/>
         </Head>
-        <nav  className='navbar navbar-expand-lg navbar-light bg-light'>
-            <div className="container-fluid d-flex justify-content-center">
-                <form action="" method="get" className='d-flex w-75 justify-content-center'>
+        <nav  className='navbar navbar-expand-lg navbar-light'>
+            <div className="container-fluid">
+                <form action="" method="get" className='w-100  d-flex justify-content-end'>
                     <label htmlFor="sortby" className='my-auto'>Sort By: </label>
                     <select name="sortby" id="sortby" className={'form-select form-select-sm mx-2 w-25'}>
                         <option value="low">Price: Low to High</option>

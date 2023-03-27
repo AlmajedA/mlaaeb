@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 const Navbar = () => {
     return ( 
-        <nav className='navbar navbar-expand-lg navbar-light bg-light'>
+        <nav className='navbar navbar-expand-lg navbar-light bg-light shadow-sm border-bottom'>
             <div className='container-fluid'>
                 <Link href={'/'}>
                     <Image src="/LOGO.png" alt="" className='navbar-brand' width={128} height={64}/>
