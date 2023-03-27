@@ -3,7 +3,7 @@ import Image from 'next/image'
 import TwoSides from '../../Comps/TwoSides';
 import LoginBox from '../../Comps/LoginBox';
 
-const Login = () => {    
+const Login = ({pageName}) => {    
     return (
         
         <TwoSides 
@@ -13,5 +13,9 @@ const Login = () => {
         
     );
     }
+
+Login.defaultProps = {
+    pageName: 'SignIn'
+};
 
 export default Login;

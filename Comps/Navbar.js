@@ -10,30 +10,41 @@ const Navbar = () => {
                     <Image src="/LOGO.png" alt="" className='navbar-brand' width={128} height={64}/>
                 </Link>
                     
-                <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                    
-                    <li className="nav-item">
-                        <Link href="/about" className='nav-link'>About</Link>
-                    </li>
-    
-                </ul>
+                
                 <div className="container-fluid d-flex justify-content-center">
                     <form action="/search" method = 'GET' className='d-flex justify-content-center w-50' role={'search'}>
-                    <select name="court-type" id="court-type" className={'form-select me-2'}>
-                        <option value="football">Football</option>
-                        <option value="tennis">Tennis</option>
-                        <option value="basketball">Basketball</option>
-                        <option value="paddle">Paddle</option>
-                        <option value="volleyball">Volleyball</option>
-                    </select>
+                        <select name="city" id="court-type" className={'form-select me-2'} required>
+                            <option value="" selected disabled hidden>Select your city</option>
+                            <option value="dammam">Dammam</option>
+                            <option value="khobar">Khobar</option>
+                            <option value="dhahran">Dhahran</option>
+                            <option value="alahasa">Al Ahsa</option>
+                            <option value="saihat">Saihat</option>
+                            <option value="qatif">Qatif</option>
+                            <option value="riyadh">Riyadh</option>
+                            <option value="jeddah">Jeddah</option>
+                            <option value="medina">Medina</option>
+
+                        </select>
+
+                        <select name="court-type" id="court-type" className={'form-select me-2'} required>
+                            <option value="" selected disabled hidden>Select your sports</option>
+                            <option value="all">All Sports</option>
+                            <option value="football">Football</option>
+                            <option value="tennis">Tennis</option>
+                            <option value="basketball">Basketball</option>
+                            <option value="paddle">Paddle</option>
+                            <option value="volleyball">Volleyball</option>
+                        </select>
+                    
                     <button className="btn btn-outline-success" type="submit">Search</button>
                     </form>
                 </div>
 
                 <div className="d-flex w-25">
 
-                    <Link className='btn btn-success' href='/registration/login'>Sign in</Link>
-
+                    <Link className='btn btn-outline-success m-2' href='/registration/login'>Sign in</Link>
+                    <Link className='btn btn-success m-2' href='/registration/signup'>Sign up</Link>
 
                 </div>
             </div>
