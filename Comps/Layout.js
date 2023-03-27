@@ -6,7 +6,6 @@ import Footer from "./Footer";
 const Layout = ({children}) => {
     const isSignInPage = children.props.pageName === 'SignIn';
     const isSignUpPage = children.props.pageName === 'SignUp';
-    console.log(children.props);
   
     return (
       <div>
