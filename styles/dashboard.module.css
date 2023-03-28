@@ -1,0 +1,83 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+}
+
+.box {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px 1px rgb(0, 0, 0, 12%);
+  padding: 45px;
+  margin: 15px 0;
+  width: 950px;
+  height: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "images info"
+    "images description";
+  grid-gap: 35px;
+}
+
+.bookCourtBtn {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.bookCourtBtn:hover {
+  background-color: #3e8e41;
+}
+
+.courtInfo > h1 {
+  font-weight: bold;
+}
+
+.courtInfo > h4 {
+  font-weight: bold;
+}
+
+.details > h5 {
+  font-weight: bold;
+}
+
+.description {
+  color: rgb(134, 134, 134);
+}
+
+.courtImages {
+  grid-area: images;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto 1fr;
+}
+
+.ImgHolder img {
+  margin: 5px;
+  padding: 5px;
+  width: 100%;
+}
+
+.img2,
+.img3,
+.img4 {
+  border-radius: 10px;
+  width: 25%;
+}
+
+.unActiveImgs {
+  display: flex;
+}
+
+.img2:hover,
+.img3:hover,
+.img4:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
