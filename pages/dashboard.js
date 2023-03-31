@@ -25,8 +25,8 @@ const dashboard = () => {
 
           <div className={styles.courtInfo}>
             <h1>Anfield Stadium</h1>
-            <ReactStars />
-            <h4>30$/h</h4>
+            <ReactStars edit={false} value={4}/>
+            <h4>100 SAR</h4>
             <button className={styles.bookCourtBtn}>Book Court</button>
           </div>
           <div className={styles.details}>

@@ -1,12 +1,24 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import Footer from '../Comps/Footer'
-import Navbar from '../Comps/Navbar'
 import Link from 'next/link'
 import Script from "next/script";
+import { useRef } from 'react'
+import Carousel from 'react-bootstrap/Carousel';
 
 
 export default function Home() {
+  let carouselRef = useRef();
+  const scrollHandler = (e) => {
+    e.preventDefault()
+    // @ts-ignore
+    carouselRef.current.element.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    })
+  }
+
+
+
   return (
 
     <>
@@ -23,66 +35,78 @@ export default function Home() {
 
 
       <div>
+      <Carousel className='mb-5' indicators={false} controls={false}>
+        <Carousel.Item>
+          <Image
+            className="d-block w-100 m-auto"
+            src="/wallpaper.jpeg"
+            alt="First slide"
+            width={512} height={512 + 128}
+          />
+          <Carousel.Caption className='h-75'>
+            <h1 className='display-6' style={{"color": "#FFE77AFF"}}><b>MLAAEB</b></h1>
+            <h1 className='display-2' style={{"color": "black"}}><b>LIFE IS BETTER WITH</b></h1>
+            <h1 className='display-5' style={{"color": "#FFE77AFF"}}><b>SPORTS</b></h1>
+            <button onClick={scrollHandler} className='btn btn-success btn-lg m-5' style={{"color": "#FFE77AFF"}}> Get Started! </button>
+          </Carousel.Caption>
+        </Carousel.Item>
+        </Carousel>
 
-      <div className="carousel slide">
-          
 
-          <div className="carousel-inner">
-            <div className="carousel-item active">
-              <Image src="/wallpaper.jpeg" className="d-block w-100 m-auto" alt="..." width={512} height={512 + 128}/>
-              <div className="carousel-caption h-50">
-                <h5>Welcome to <b>MLAAEB</b>!</h5>
-                <p>The best place to reserve a court and enjoy your time with your family and friends</p>
-                
-              </div>
-            </div>
-            
-            
-          </div>
-          
-        </div>
+
+
+      <h1 className='text-center'>High Rated Courts</h1>          
+
+      <Carousel ref={carouselRef} className='mb-5'>
+        <Carousel.Item>
+          <Image
+            className="d-block w-100"
+            src="/football_court.jpeg"
+            alt="First slide"
+            width={512} height={512}
+          />
+          <Carousel.Caption>
+            <h3>Football Court</h3>
+            <p>Reserve The best football court in Dammam from here.</p>
+            <Link className='btn btn-success' href='/dashboard'>More Details</Link>
+          </Carousel.Caption>
+        </Carousel.Item>
+
+        <Carousel.Item>
+          <Image
+            className="d-block w-100"
+            src="/tennis_court.jpeg"
+            alt="Second slide"
+            width={512} height={512}
+          />
+
+          <Carousel.Caption>
+            <h3>Tennis Court</h3>
+            <p>Reserve the best tennis court in Dhahran from here.</p>
+            <Link className='btn btn-success' href='/'>More Details</Link>
+          </Carousel.Caption>
+        </Carousel.Item>
+
+        <Carousel.Item>
+          <Image
+            className="d-block w-100"
+            src="/padel.jpg"
+            alt="Third slide"
+            width={512} height={512}
+          />
+
+          <Carousel.Caption>
+            <h3>Padel Court</h3>
+            <p>Reserve The best padel court in Dammam from here.</p>
+            <Link className='btn btn-success' href='/'>More Details</Link>
+          </Carousel.Caption>
+        </Carousel.Item>
+      </Carousel>
+
+
       
 
-        
-
-        
-
-        <div id="carouselExampleCaptions" className="carousel slide mt-4">
-          <div className="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-          </div>
-
-          <div className="carousel-inner">
-            <div className="carousel-item active">
-              <Image src="/football_court.jpeg" className="d-block w-75 m-auto" alt="..." width={512} height={512}/>
-              <div className="carousel-caption d-none d-md-block">
-                <h5>Football Court</h5>
-                <p>Reserve The best football court in Dammam from here.</p>
-                <Link className='btn btn-success' href='/'>More Details</Link>
-              </div>
-            </div>
-            <div className="carousel-item">
-              <Image src="/tennis_court.jpeg" className="d-block w-75 m-auto" alt="..." width={512} height={512}/>
-              <div className="carousel-caption d-none d-md-block">
-                <h5>Tennis Court</h5>
-                <p>Reserve the best tennis court in Dhahran from here.</p>
-                <Link className='btn btn-success' href='/'>More Details</Link>
-              </div>
-            </div>
-            <div className="carousel-item">
-              <Image src="/padel.jpg" className="d-block w-75 m-auto" alt="..." width={512} height={512}/>
-              <div className="carousel-caption d-none d-md-block">
-                <h5>Padel Court</h5>
-                <p>Reserve The best padel court in Dammam from here.</p>
-                <Link className='btn btn-success' href='/'>More Details</Link>
-              </div>
-            </div>
-          </div>
-          
-        </div>
-      </div>
+    </div>
       
 
       

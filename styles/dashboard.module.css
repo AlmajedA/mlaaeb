@@ -24,7 +24,7 @@
 }
 
 .bookCourtBtn {
-  background-color: #4caf50;
+  background-color: #198754;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -33,7 +33,7 @@
 }
 
 .bookCourtBtn:hover {
-  background-color: #3e8e41;
+  background-color: #157347;
 }
 
 .courtInfo > h1 {
