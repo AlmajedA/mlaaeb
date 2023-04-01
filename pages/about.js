@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Link from 'next/link';
 
 const About = () => {
     return ( 
@@ -9,10 +10,10 @@ const About = () => {
 
         </Head>
         
-        <div>
+        <div className='text-center my-5'>
             <h1>About</h1>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque maiores sit exercitationem iste, a praesentium ipsum similique dolorum repellendus cum veritatis nobis ipsam adipisci minus et. Veniam quam culpa odio?</p>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque maiores sit exercitationem iste, a praesentium ipsum similique dolorum repellendus cum veritatis nobis ipsam adipisci minus et. Veniam quam culpa odio?</p>
+            <p><b>MLAAEB</b> is where you can find courts for most of the popular sports</p>
+            <p>Follow uss on Instagram for up-to-date infomation: <Link className = 'link-success' href={"https://instagram.com/mlaaebsa?igshid=YmMyMTA2M2Y="}>MLAAEB Instagram</Link></p>
 
         </div> 
     </>);

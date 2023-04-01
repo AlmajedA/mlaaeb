@@ -2,9 +2,10 @@
 import Link from 'next/link'
 
 
+
 const Footer = () => {
     return ( 
-        <footer className="text-center text-white border-top mt-4 bg-light">
+        <footer className="text-center text-white border-top mt-auto bg-light position-absolute bottom-0 w-100 h-2.5rem">
   
             <div className="container pt-2">
                 {/* Section: Social media */}

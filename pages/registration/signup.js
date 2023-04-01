@@ -12,7 +12,7 @@ const Signup = ({pageName}) => {
             left={<Image src='/../public/LOGO Horizantal.png' alt='logo' width={1000} height={1000} layout="responsive"/>}
             right={<SignUpBox />} 
         />
-        <Footer />
+        
         </>
     );
     }

@@ -1,6 +1,6 @@
 
 import Navbar from "./Navbar";
-
+import styles from "../styles/footer.module.css";
 import Footer from "./Footer";
 
 const Layout = ({children}) => {
@@ -10,8 +10,13 @@ const Layout = ({children}) => {
     return (
       <div>
         {isSignInPage || isSignUpPage ? null : <Navbar />}
-        {children}
-        {isSignInPage || isSignUpPage ? null : <Footer />}
+        
+        <div className={styles.pageContainer}>
+          <div className={styles.contentWrap}>{children}</div>
+          
+          <Footer/>
+        </div>
+        
       </div>
     );
 }
