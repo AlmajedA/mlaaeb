@@ -54,6 +54,7 @@ const SignUpBox = ()=> {
           <div className="card mt-5">
             <div className="card-body rounded" style={{ backgroundColor: '#333333', color: 'white' }}>
               <h2 className="card-title mb-4 text-center">SignUp</h2>
+              <Link href={'/'}>
               <Image
                 src='/LOGO_without_caption.png'
                 alt='logo'
@@ -61,6 +62,7 @@ const SignUpBox = ()=> {
                 height={'100'}
                 className="mx-auto d-block"
               />
+              </Link>
               {error && <p style={{ color: 'red', textAlign: 'center'}}>{error}</p>}
               <form onSubmit={handleSubmit}>
                 <div className="mb-3">

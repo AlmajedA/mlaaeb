@@ -18,22 +18,32 @@ const LoginBox = ()=> {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      const response = await fetch('/api/login', {
-        method: 'POST',
-        body: JSON.stringify({ email, password }),
-        headers: { 'Content-Type': 'application/json' },
-      });
 
-      if (response.ok) {
-        // redirect to dashboard or homepage
-      } else {
-        setError('Invalid username or password');
-      }
-    } catch (error) {
-      console.error('An unexpected error occurred:', error);
-      setError('An unexpected error occurred');
+    if (email === 'user@gmail.com' && password ==='user') {
+      window.location.href = "/profile";
+    } else {
+      setError('Invalid username or password');
     }
+
+
+
+
+    // try {
+    //   const response = await fetch('/api/login', {
+    //     method: 'POST',
+    //     body: JSON.stringify({ email, password }),
+    //     headers: { 'Content-Type': 'application/json' },
+    //   });
+
+    //   if (response.ok) {
+    //     // redirect to dashboard or homepage
+    //   } else {
+    //     setError('Invalid username or password');
+    //   }
+    // } catch (error) {
+    //   console.error('An unexpected error occurred:', error);
+    //   setError('An unexpected error occurred');
+    // }
   };
 
   return (
@@ -43,6 +53,7 @@ const LoginBox = ()=> {
           <div className="card mt-5">
             <div className="card-body rounded" style={{ backgroundColor: '#333333', color: 'white' }}>
               <h2 className="card-title mb-4 text-center">Login</h2>
+              <Link href={'/'}>
               <Image
                 src='/LOGO_without_caption.png'
                 alt='logo'
@@ -50,6 +61,7 @@ const LoginBox = ()=> {
                 height={'100'}
                 className="mx-auto d-block"
               />
+              </Link>
               {error && <p style={{ color: 'red', textAlign: 'center'}}>{error}</p>}
               <form onSubmit={handleSubmit}>
                 <div className="mb-3">
@@ -60,7 +72,7 @@ const LoginBox = ()=> {
                   <label htmlFor="password" className="form-label">Password</label>
                   <input type="password" className="form-control" id="password" value={password} onChange={handlePasswordChange} required />
                 </div>
-                <div class="d-grid">
+                <div className="d-grid">
                   <button type="button" className="btn btn-outline-success btn-block" onClick={handleSubmit}>Login</button>
                   <p className='block mt-2 text-center'>Don't have account? <Link href='/registration/signup'>create account</Link></p>
                 </div>
