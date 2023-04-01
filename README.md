@@ -29,7 +29,7 @@ This project is done by:
 
 Member Contribution:
 - Ammar Almajed: Main page, Search page, About page, Navbar, and footer.
-- Abdulhamid Alfaqih: Profile page.
+- Abdulhamid Alfaqih: Profile page and Instagram Account.
 - Ali Almarzooq: Dashboard page.
 - Ali Ibrahim: Sign in and Sign out pages.
 
