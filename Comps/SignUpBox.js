@@ -60,9 +60,9 @@ const SignUpBox = ()=> {
   return (
     <div className="container">
       <div className="row justify-content-center">
-        <div className="col-lg-6 col-md-5">
-          <div className="card mt-5">
-            <div className="card-body rounded shadow-lg" style={{ backgroundColor: '', color: '' }}>
+        <div className="col-lg-6 col-md-5 mb-5 position-relative">
+          <div className="card  mt-5 mb-5 ">
+            <div className="card-body rounded shadow-lg " style={{ backgroundColor: '', color: '', heigh: 'auto'  }}>
               <h2 className="card-title mb-4 text-center">SignUp</h2>
               <Link href={'/'}>
               <Image
@@ -75,18 +75,18 @@ const SignUpBox = ()=> {
               </Link>
               {error && <p style={{ color: 'red', textAlign: 'center'}}>{error}</p>}
               <form onSubmit={handleSubmit}>
-              <div className='container'>
-              <div className='row'>
-                <div className="mb-3 col">
-                    <label htmlFor="name" className="form-label">Name</label>
-                    <input type="text" className="form-control text-bg-light" id="name" placeholder="Your name" value={name} onChange={handleNameChange} required />
+                <div className='container'>
+                  <div className='row'>
+                    <div className="mb-3 col">
+                        <label htmlFor="name" className="form-label">Name</label>
+                        <input type="text" className="form-control text-bg-light" id="name" placeholder="Your name" value={name} onChange={handleNameChange} required />
+                    </div>
+                    <div className="mb-3 col">
+                        <label htmlFor="telNo" className="form-label">Phone</label>
+                        <input type="tel" className="form-control text-bg-light" id="telNo" minlength="10" maxlength="10" placeholder="05xxxxxxxx" value={telNo} onChange={handleTelNoChange} required />
+                    </div>
+                  </div>
                 </div>
-                <div className="mb-3 col">
-                    <label htmlFor="telNo" className="form-label">Phone</label>
-                    <input type="tel" className="form-control text-bg-light" id="telNo" minlength="10" maxlength="10" placeholder="05xxxxxxxx" value={telNo} onChange={handleTelNoChange} required />
-                </div>
-              </div>
-              </div>
                 <div className="mb-3">
                   <label htmlFor="email" className="form-label">Email address</label>
                   <input type="email" className="form-control text-bg-light" id="email" value={email} onChange={handleEmailChange} required />

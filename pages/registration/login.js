@@ -5,7 +5,7 @@ import Footer from '../../Comps/Footer';
 
 const Login = ({pageName}) => {    
     return (
-        <div style={{height: "100vh", padding: 0}}>
+        <div style={{height: "auto", padding: 0}}>
             <nav className='pb-1' style={{backgroundColor: '#D6dddf'}}>
                 <p className='text-center'>
                     <Link href={'/'}>
@@ -14,7 +14,7 @@ const Login = ({pageName}) => {
                 </p>
             </nav>
             <LoginBox />
-        <Footer />
+            <Footer />
         </div>
     );
     }

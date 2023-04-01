@@ -49,9 +49,9 @@ const LoginBox = ()=> {
   return (
     <div className="container">
       <div className="row justify-content-center">
-        <div className="col-lg-4">
-          <div className="card mt-5">
-            <div className="card-body rounded shadow-lg" style={{ backgroundColor: '', color: '' }}>
+        <div className="col-lg-4 mb-5 position-relative">
+          <div className="card mt-5 mb-5">
+            <div className="card-body rounded shadow-lg" style={{ backgroundColor: '', color: '', heigh: 'auto' }}>
               <h2 className="card-title mb-4 text-center">Login</h2>
               <Link href={'/'}>
               <Image
