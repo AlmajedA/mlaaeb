@@ -1,19 +1,22 @@
 import React from 'react';
-import Image from 'next/image'
-import TwoSides from '../../Comps/TwoSides';
 import SignUpBox from '../../Comps/SignUpBox';
 import Footer from '../../Comps/Footer';
+import Link from 'next/link'
 
 const Signup = ({pageName}) => {    
     
     return (
-        <>
-        <TwoSides
-            left={<Image src='/../public/LOGO Horizantal.png' alt='logo' width={1000} height={1000} layout="responsive"/>}
-            right={<SignUpBox />} 
-        />
-        
-        </>
+        <div style={{height: "100vh", padding: 0}} >
+            <nav className='pb-1' style={{backgroundColor: '#D6dddf'}}>
+                <p className='text-center'>
+                    <Link href={'/'}>
+                        <img src="/LOGO.png" alt="logo" style={{height: '3rem'}} />
+                    </Link>
+                </p>
+            </nav>
+            <SignUpBox />
+        <Footer />
+        </div>
     );
     }
 

@@ -49,9 +49,9 @@ const LoginBox = ()=> {
   return (
     <div className="container">
       <div className="row justify-content-center">
-        <div className="col-lg-8">
+        <div className="col-lg-4">
           <div className="card mt-5">
-            <div className="card-body rounded" style={{ backgroundColor: '#333333', color: 'white' }}>
+            <div className="card-body rounded shadow-lg" style={{ backgroundColor: '', color: '' }}>
               <h2 className="card-title mb-4 text-center">Login</h2>
               <Link href={'/'}>
               <Image
@@ -66,11 +66,11 @@ const LoginBox = ()=> {
               <form onSubmit={handleSubmit}>
                 <div className="mb-3">
                   <label htmlFor="email" className="form-label">Email address</label>
-                  <input type="email" className="form-control" id="email" value={email} onChange={handleEmailChange} required />
+                  <input type="email" className="form-control text-bg-light" id="email" value={email} onChange={handleEmailChange} required />
                 </div>
                 <div className="mb-3">
                   <label htmlFor="password" className="form-label">Password</label>
-                  <input type="password" className="form-control" id="password" value={password} onChange={handlePasswordChange} required />
+                  <input type="password" className="form-control text-bg-light" id="password" value={password} onChange={handlePasswordChange} required />
                 </div>
                 <div className="d-grid">
                   <button type="button" className="btn btn-outline-success btn-block" onClick={handleSubmit}>Login</button>
