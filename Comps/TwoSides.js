@@ -2,9 +2,11 @@
 
 const TwoSides = ({ left, right}) => {
   return (
-    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-      <div style={{ width: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center', backgroundColor: '#212121', height: 'auto'}}>{left}</div>
-      <div style={{ width: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center', backgroundColor: '#fff', height: 'auto'}}>{right}</div>
+    <div  className='container-fluid' style={{height: '100%'}}>
+      <div className="row">
+        <div className="col-sm-6" style={{display: 'flex', justifyContent: 'center', alignItems: 'center', backgroundColor: '#212121'}}>{left}</div>
+        <div className="col-sm-6 " style={{display: 'flex', justifyContent: 'center', alignItems: 'center', backgroundColor: '#fff'}}>{right}</div>
+      </div>
     </div>
   );
 };

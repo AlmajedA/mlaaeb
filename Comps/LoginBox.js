@@ -1,14 +1,19 @@
 import { useState } from 'react';
-// import Img from './Img';
 import Image from 'next/image'
-import styles from '../styles/Login.module.css';
 import Link from 'next/link';
 
-
-const LoginBox = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+const LoginBox = ()=> {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
   const [error, setError] = useState('');
+
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value)
+  }
+
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value)
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -16,7 +21,7 @@ const LoginBox = () => {
     try {
       const response = await fetch('/api/login', {
         method: 'POST',
-        body: JSON.stringify({ username, password }),
+        body: JSON.stringify({ email, password }),
         headers: { 'Content-Type': 'application/json' },
       });
 
@@ -32,32 +37,40 @@ const LoginBox = () => {
   };
 
   return (
-    <>
-        <form onSubmit={handleSubmit} className={styles.loginForm}>
-        <Image
-          src='/LOGO_without_caption.png'
-          alt='logo'
-          width={'100'}
-          height={'100'}
-        />
-        <h1>Login</h1>
-        {error && <p style={{ color: 'red' }}>{error}</p>}
-        <label htmlFor='username'>
-            Username:
-        </label>
-        <input type="text" value={username} name='username' onChange={(e) => setUsername(e.target.value)} />
-        <br />
-        <label htmlFor='password'>
-            Password:
-        </label>
-        <input type="password" name='password' value={password} onChange={(e) => setPassword(e.target.value)} />
-        <br />
-        <button type="submit">Login</button>
-        <p>Don't have account? <Link href='/registration/signup'>create account</Link></p>
-        </form>
-        
-    </>
-  );
+    <div className="container">
+      <div className="row justify-content-center">
+        <div className="col-lg-8">
+          <div className="card mt-5">
+            <div className="card-body rounded" style={{ backgroundColor: '#333333', color: 'white' }}>
+              <h2 className="card-title mb-4 text-center">Login</h2>
+              <Image
+                src='/LOGO_without_caption.png'
+                alt='logo'
+                width={'100'}
+                height={'100'}
+                className="mx-auto d-block"
+              />
+              {error && <p style={{ color: 'red', textAlign: 'center'}}>{error}</p>}
+              <form onSubmit={handleSubmit}>
+                <div className="mb-3">
+                  <label htmlFor="email" className="form-label">Email address</label>
+                  <input type="email" className="form-control" id="email" value={email} onChange={handleEmailChange} required />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="password" className="form-label">Password</label>
+                  <input type="password" className="form-control" id="password" value={password} onChange={handlePasswordChange} required />
+                </div>
+                <div class="d-grid">
+                  <button type="button" className="btn btn-outline-success btn-block" onClick={handleSubmit}>Login</button>
+                  <p className='block mt-2 text-center'>Don't have account? <Link href='/registration/signup'>create account</Link></p>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
 }
 
-export default LoginBox;
+export default LoginBox
