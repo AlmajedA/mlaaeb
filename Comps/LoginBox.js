@@ -19,7 +19,7 @@ const LoginBox = ()=> {
     e.preventDefault();
 
 
-    if (email === 'user@gmail.com' && password ==='user') {
+    if (email.toLowerCase() === 'user@gmail.com' && password ==='user') {
       window.location.href = "/profile";
     } else {
       setError('Invalid username or password');
