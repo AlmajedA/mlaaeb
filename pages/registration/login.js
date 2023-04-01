@@ -1,16 +1,19 @@
 import React from 'react';
-import Image from 'next/image'
-import TwoSides from '../../Comps/TwoSides';
+import Link from 'next/link'
 import LoginBox from '../../Comps/LoginBox';
 import Footer from '../../Comps/Footer';
 
 const Login = ({pageName}) => {    
     return (
-        <div style={{height: "100%", padding: 0}}>
-        <TwoSides 
-            left={<Image src='/../public/LOGO Horizantal.png' alt='logo' width={1000} height={1000} layout="responsive"/>}
-            right={<LoginBox />} 
-        />
+        <div style={{height: "100vh", padding: 0}}>
+            <nav className='pb-1' style={{backgroundColor: '#D6dddf'}}>
+                <p className='text-center'>
+                    <Link href={'/'}>
+                        <img src="/LOGO.png" alt="logo" style={{height: '3rem'}} />
+                    </Link>
+                </p>
+            </nav>
+            <LoginBox />
         <Footer />
         </div>
     );

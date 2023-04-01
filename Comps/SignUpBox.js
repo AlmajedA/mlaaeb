@@ -7,6 +7,8 @@ const SignUpBox = ()=> {
   const [password, setPassword] = useState('')
   const [confPswd, setConfPswd] = useState('')
   const [error, setError] = useState('');
+  const [telNo, setTelNo] = useState('');
+  const [name, setName] = useState('');
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value)
@@ -18,6 +20,14 @@ const SignUpBox = ()=> {
 
   const handleConfPswdChange = (event) => {
     setConfPswd(event.target.value)
+  }
+
+  const handleTelNoChange = (event) => {
+    setTelNo(event.target.value)
+  }
+
+  const handleNameChange = (event) => {
+    setName(event.target.value)
   }
 
   const handleSubmit = async (e) => {
@@ -50,9 +60,9 @@ const SignUpBox = ()=> {
   return (
     <div className="container">
       <div className="row justify-content-center">
-        <div className="col-lg-8">
+        <div className="col-lg-6 col-md-5">
           <div className="card mt-5">
-            <div className="card-body rounded" style={{ backgroundColor: '#333333', color: 'white' }}>
+            <div className="card-body rounded shadow-lg" style={{ backgroundColor: '', color: '' }}>
               <h2 className="card-title mb-4 text-center">SignUp</h2>
               <Image
                 src='/LOGO_without_caption.png'
@@ -63,17 +73,29 @@ const SignUpBox = ()=> {
               />
               {error && <p style={{ color: 'red', textAlign: 'center'}}>{error}</p>}
               <form onSubmit={handleSubmit}>
+              <div className='container'>
+              <div className='row'>
+                <div className="mb-3 col">
+                    <label htmlFor="name" className="form-label">Name</label>
+                    <input type="text" className="form-control text-bg-light" id="name" placeholder="Your name" value={name} onChange={handleNameChange} required />
+                </div>
+                <div className="mb-3 col">
+                    <label htmlFor="telNo" className="form-label">Phone</label>
+                    <input type="tel" className="form-control text-bg-light" id="telNo" minlength="10" maxlength="10" placeholder="05xxxxxxxx" value={telNo} onChange={handleTelNoChange} required />
+                </div>
+              </div>
+              </div>
                 <div className="mb-3">
                   <label htmlFor="email" className="form-label">Email address</label>
-                  <input type="email" className="form-control" id="email" value={email} onChange={handleEmailChange} required />
+                  <input type="email" className="form-control text-bg-light" id="email" value={email} onChange={handleEmailChange} required />
                 </div>
                 <div className="mb-3">
                   <label htmlFor="password" className="form-label">Password</label>
-                  <input type="password" className="form-control" id="password" value={password} onChange={handlePasswordChange} required />
+                  <input type="password" className="form-control text-bg-light" id="password" value={password} onChange={handlePasswordChange} required />
                 </div>
                 <div className="mb-3">
                   <label htmlFor="conf-pswd" className="form-label">Confirm Password</label>
-                  <input type="password" className="form-control" id="conf-pswd" value={confPswd} onChange={handleConfPswdChange} required />
+                  <input type="password" className="form-control text-bg-light" id="conf-pswd" value={confPswd} onChange={handleConfPswdChange} required />
                 </div>
                 <div class="d-grid">
                   <button type="button" className="btn btn-outline-success btn-block" onClick={handleSubmit}>SignUp</button>
