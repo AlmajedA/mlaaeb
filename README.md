@@ -8,6 +8,13 @@ To test our websie please clone this repository:
 git clone https://github.com/AlmajedA/mlaaeb.git
 ```
 
+Next, run this command to install Dependencies used in this project
+
+```bash
+npm install
+```
+
+
 Then run the following to run the server:
 
 ```bash
