@@ -8,7 +8,7 @@ To test our websie please clone this repository:
 git clone https://github.com/AlmajedA/mlaaeb.git
 ```
 
-Next, run this command to install Dependencies used in this project
+Next, run this command to install dependencies used in this project
 
 ```bash
 npm install
