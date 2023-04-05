@@ -20,7 +20,7 @@ const About = () => {
             <h3>Member Contribution: </h3>
                 
             <p><b>Ammar Almajed:</b> Main page, Search page, About page, Navbar, and footer.</p>
-            <p><b>Abdulhamid Alfaqih:</b> Profile page and Instagram account.</p>
+            <p><b>Abdulhamid Alfaqih:</b> Profile page, website LOGO, and Instagram account.</p>
             <p><b>Ali Almarzooq:</b> Dashboard page.</p>
             <p><b>Ali Ibrahim:</b> Sign in and Sign out pages.</p>
                 
