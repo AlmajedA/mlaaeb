@@ -42,12 +42,6 @@ Password: user # all lower case
 - Ali Ibrahim
 
 
-#### Member Contribution:
-- Ammar Almajed: Main page, Search page, About page, Navbar, and footer.
-- Abdulhamid Alfaqih: Profile page, website LOGO, and Instagram Account.
-- Ali Almarzooq: Dashboard page.
-- Ali Ibrahim: Sign in and Sign out pages.
-
 #### Used Dependencies:
 - "bootstrap": "^5.2.3",
 - "mdb-react-ui-kit": "^6.0.0",

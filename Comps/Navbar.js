@@ -13,8 +13,8 @@ const Navbar = () => {
                 
                 <div className="container-fluid d-flex justify-content-center">
                     <form action="/search" method = 'GET' className='d-flex justify-content-center w-50' role={'search'}>
-                        <select name="city" id="court-type" className={'form-select me-2'} required>
-                            <option value="" selected disabled hidden>Select your city</option>
+                        <select name="city" id="court-type" className={'form-select me-2'} defaultValue={''} required>
+                            <option value="" disabled hidden>Select your city</option>
                             <option value="dammam">Dammam</option>
                             <option value="khobar">Khobar</option>
                             <option value="dhahran">Dhahran</option>
@@ -27,8 +27,8 @@ const Navbar = () => {
 
                         </select>
 
-                        <select name="court-type" id="court-type" className={'form-select me-2'} required>
-                            <option value="" selected disabled hidden>Select your sports</option>
+                        <select name="court-type" id="court-type" className={'form-select me-2'} defaultValue={''} required>
+                            <option value="" disabled hidden>Select your sports</option>
                             <option value="all">All Sports</option>
                             <option value="football">Football</option>
                             <option value="tennis">Tennis</option>

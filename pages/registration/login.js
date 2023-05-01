@@ -6,7 +6,7 @@ import Footer from '../../Comps/Footer';
 const Login = ({pageName}) => {    
     return (
         <div style={{height: "auto", padding: 0}}>
-            <nav className='pb-1' style={{backgroundColor: '#D6dddf'}}>
+            <nav className='pb-1'>
                 <p className='text-center'>
                     <Link href={'/'}>
                         <img src="/LOGO.png" alt="logo" style={{height: '3rem'}} />

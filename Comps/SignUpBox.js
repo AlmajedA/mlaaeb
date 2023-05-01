@@ -3,15 +3,24 @@ import Image from 'next/image'
 import Link from 'next/link';
 
 const SignUpBox = ()=> {
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('')
+  const [telNo, setTelNo] = useState('');
   const [password, setPassword] = useState('')
   const [confPswd, setConfPswd] = useState('')
   const [error, setError] = useState('');
-  const [telNo, setTelNo] = useState('');
-  const [name, setName] = useState('');
 
+
+  const handleNameChange = (event) => {
+    setName(event.target.value)
+  }
+  
   const handleEmailChange = (event) => {
     setEmail(event.target.value)
+  }
+
+  const handleTelNoChange = (event) => {
+    setTelNo(event.target.value)
   }
 
   const handlePasswordChange = (event) => {
@@ -20,14 +29,6 @@ const SignUpBox = ()=> {
 
   const handleConfPswdChange = (event) => {
     setConfPswd(event.target.value)
-  }
-
-  const handleTelNoChange = (event) => {
-    setTelNo(event.target.value)
-  }
-
-  const handleNameChange = (event) => {
-    setName(event.target.value)
   }
 
   const handleSubmit = async (e) => {
@@ -42,12 +43,15 @@ const SignUpBox = ()=> {
     try {
       const response = await fetch('/api/signup', {
         method: 'POST',
-        body: JSON.stringify({ email, password}),
+        body: JSON.stringify({ name: name, email: email, telNo: telNo, password: password}),
         headers: { 'Content-Type': 'application/json' },
       });
+      
 
       if (response.ok) {
         // redirect to dashboard or homepage
+        location.replace("/")
+    
       } else {
         setError('Invalid username or password');
       }
@@ -63,7 +67,7 @@ const SignUpBox = ()=> {
         <div className="col-lg-6 col-md-5 mb-5 position-relative">
           <div className="card  mt-5 mb-5 ">
             <div className="card-body rounded shadow-lg " style={{ backgroundColor: '', color: '', heigh: 'auto'  }}>
-              <h2 className="card-title mb-4 text-center">SignUp</h2>
+              <h2 className="card-title mb-4 text-center">Sign up</h2>
               <Link href={'/'}>
               <Image
                 src='/LOGO_without_caption.png'
@@ -79,11 +83,11 @@ const SignUpBox = ()=> {
                   <div className='row'>
                     <div className="mb-3 col">
                         <label htmlFor="name" className="form-label">Name</label>
-                        <input type="text" className="form-control text-bg-light" id="name" placeholder="Your name" value={name} onChange={handleNameChange} required />
+                        <input type="text" pattern='^[^\s]+$' className="form-control text-bg-light" id="name" placeholder="Your name" value={name} onChange={handleNameChange} required />
                     </div>
                     <div className="mb-3 col">
                         <label htmlFor="telNo" className="form-label">Phone</label>
-                        <input type="tel" className="form-control text-bg-light" id="telNo" minlength="10" maxlength="10" placeholder="05xxxxxxxx" value={telNo} onChange={handleTelNoChange} required />
+                        <input type="tel" pattern="^05\d{8}$" className="form-control text-bg-light" id="telNo" placeholder="05xxxxxxxx" value={telNo} onChange={handleTelNoChange} required />
                     </div>
                   </div>
                 </div>
@@ -93,15 +97,16 @@ const SignUpBox = ()=> {
                 </div>
                 <div className="mb-3">
                   <label htmlFor="password" className="form-label">Password</label>
-                  <input type="password" className="form-control text-bg-light" id="password" value={password} onChange={handlePasswordChange} required />
+                  <input type="password" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{6,}$" className="form-control text-bg-light" id="password" onChange={handlePasswordChange} required />
+                  <p className='fw-light text-secondary'>Password should have at least one uppercase, at least one lowercase, at least one digit, and a minimum length of 6 characters.</p>
                 </div>
                 <div className="mb-3">
                   <label htmlFor="conf-pswd" className="form-label">Confirm Password</label>
-                  <input type="password" className="form-control text-bg-light" id="conf-pswd" value={confPswd} onChange={handleConfPswdChange} required />
+                  <input type="password" className="form-control text-bg-light" id="conf-pswd" onChange={handleConfPswdChange} required />
                 </div>
-                <div class="d-grid">
-                  <button type="button" className="btn btn-outline-success btn-block" onClick={handleSubmit}>SignUp</button>
-                  <p className='block mt-2 text-center'>Already have account? <Link href='/registration/login'>Login</Link></p>
+                <div className="d-grid">
+                  <button type="submit" className="btn btn-outline-success btn-block">Sign up</button>
+                  <p className='block mt-2 text-center'>Already have account?<Link href='/registration/login'>Login</Link></p>
                 </div>
               </form>
             </div>

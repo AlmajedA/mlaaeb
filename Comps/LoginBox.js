@@ -17,33 +17,29 @@ const LoginBox = ()=> {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-
-    if (email.toLowerCase() === 'user@gmail.com' && password ==='user') {
-      window.location.href = "/profile";
-    } else {
-      setError('Invalid username or password');
+    try {
+      const response = await fetch('/api/signin', {
+        method: 'POST',
+        body: JSON.stringify({ email: email, password: password }),
+        headers: { 'Content-Type': 'application/json' },
+      });
+    
+      if (response.ok) {
+        const result = await response.json(); // Parse the response JSON object
+        if (result.success) {
+          // redirect to dashboard or homepage
+          location.replace('/')
+        } else {
+          setError('Email or password are incorrect');
+        }
+      } else {
+        setError('Invalid email or password');
+      }
+    } catch (error) {
+      console.error('An unexpected error occurred:', error);
+      setError('An unexpected error occurred');
     }
-
-
-
-
-    // try {
-    //   const response = await fetch('/api/login', {
-    //     method: 'POST',
-    //     body: JSON.stringify({ email, password }),
-    //     headers: { 'Content-Type': 'application/json' },
-    //   });
-
-    //   if (response.ok) {
-    //     // redirect to dashboard or homepage
-    //   } else {
-    //     setError('Invalid username or password');
-    //   }
-    // } catch (error) {
-    //   console.error('An unexpected error occurred:', error);
-    //   setError('An unexpected error occurred');
-    // }
+    
   };
 
   return (
@@ -52,7 +48,7 @@ const LoginBox = ()=> {
         <div className="col-lg-4 mb-5 position-relative">
           <div className="card mt-5 mb-5">
             <div className="card-body rounded shadow-lg" style={{ backgroundColor: '', color: '', heigh: 'auto' }}>
-              <h2 className="card-title mb-4 text-center">Login</h2>
+              <h2 className="card-title mb-4 text-center">Sign in</h2>
               <Link href={'/'}>
               <Image
                 src='/LOGO_without_caption.png'
@@ -70,10 +66,10 @@ const LoginBox = ()=> {
                 </div>
                 <div className="mb-3">
                   <label htmlFor="password" className="form-label">Password</label>
-                  <input type="password" className="form-control text-bg-light" id="password" value={password} onChange={handlePasswordChange} required />
+                  <input type="password" className="form-control text-bg-light" id="password" onChange={handlePasswordChange} required />
                 </div>
                 <div className="d-grid">
-                  <button type="button" className="btn btn-outline-success btn-block" onClick={handleSubmit}>Login</button>
+                  <button type="submit" className="btn btn-outline-success btn-block">Sign in</button>
                   <p className='block mt-2 text-center'>Don't have account? <Link href='/registration/signup'>create account</Link></p>
                 </div>
               </form>
