@@ -1,3 +1,15 @@
 /* body{
     background-color: 
 } */
+
+.dropdown-toggle::after {
+    content: "";
+    display: inline-block;
+    margin-left: 0.255em;
+    vertical-align: 0.255em;
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+    color: #000000; /* Set color to black */
+  }

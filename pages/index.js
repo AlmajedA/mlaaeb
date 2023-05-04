@@ -8,16 +8,6 @@ import Carousel from 'react-bootstrap/Carousel';
 
 export default function Home() {
   let carouselRef = useRef();
-  const scrollHandler = (e) => {
-    e.preventDefault()
-    // @ts-ignore
-    carouselRef.current.element.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start',
-    })
-  }
-
-
 
   return (
 
@@ -47,7 +37,36 @@ export default function Home() {
             <h1 className='display-6' style={{"color": "#FFE77AFF"}}><b>MLAAEB</b></h1>
             <h1 className='display-2' style={{"color": "black"}}><b>LIFE IS BETTER WITH</b></h1>
             <h1 className='display-5' style={{"color": "#FFE77AFF"}}><b>SPORTS</b></h1>
-            <button onClick={scrollHandler} className='btn btn-success btn-lg m-5' style={{"color": "#FFE77AFF"}}> Get Started! </button>
+            <div className="container-fluid d-flex justify-content-center m-5">
+                    <form action="/search" method = 'GET' className='d-flex justify-content-center w-50' role={'search'}>
+                        <select name="city" id="court-type" className={'form-select me-2'} defaultValue={''} required>
+                            <option value="" disabled hidden>Select your city</option>
+                            <option value="dammam">Dammam</option>
+                            <option value="khobar">Khobar</option>
+                            <option value="dhahran">Dhahran</option>
+                            <option value="alahasa">Al Ahsa</option>
+                            <option value="saihat">Saihat</option>
+                            <option value="qatif">Qatif</option>
+                            <option value="riyadh">Riyadh</option>
+                            <option value="jeddah">Jeddah</option>
+                            <option value="medina">Medina</option>
+
+                        </select>
+
+                        <select name="court-type" id="court-type" className={'form-select me-2'} defaultValue={''} required>
+                            <option value="" disabled hidden>Select your sports</option>
+                            <option value="all">All Sports</option>
+                            <option value="football">Football</option>
+                            <option value="tennis">Tennis</option>
+                            <option value="basketball">Basketball</option>
+                            <option value="paddle">Paddle</option>
+                            <option value="volleyball">Volleyball</option>
+                        </select>
+                    
+                    <button className="btn btn-success" type="submit">Search</button>
+                    </form>
+                </div>
+
           </Carousel.Caption>
         </Carousel.Item>
         </Carousel>

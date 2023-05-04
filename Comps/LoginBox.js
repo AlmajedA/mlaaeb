@@ -1,11 +1,15 @@
-import { useState } from 'react';
+
 import Image from 'next/image'
 import Link from 'next/link';
+import { useEffect, useState } from "react";
 
 const LoginBox = ()=> {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('');
+  const [userAcc, setUserAcc] = useState(null);
+  
+
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value)
@@ -25,22 +29,25 @@ const LoginBox = ()=> {
       });
     
       if (response.ok) {
-        const result = await response.json(); // Parse the response JSON object
-        if (result.success) {
+        const userAcc = await response.json(); // Parse the response JSON object
+        console.log(userAcc)
+      
+        if (userAcc.name) {
           // redirect to dashboard or homepage
-          location.replace('/')
+          setUserAcc(userAcc);
+          localStorage.setItem("userAcc", JSON.stringify(userAcc));
+          location.replace('/');
         } else {
           setError('Email or password are incorrect');
         }
-      } else {
-        setError('Invalid email or password');
-      }
+      } 
     } catch (error) {
       console.error('An unexpected error occurred:', error);
       setError('An unexpected error occurred');
     }
     
   };
+
 
   return (
     <div className="container">

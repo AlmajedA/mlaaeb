@@ -14,16 +14,26 @@ class User{
     }
 
     createNewUser(userInfo){
-        
-        this.db.run("INSERT INTO User (name, phone_number, email, password) VALUES (?, ?, ?, ?)", [userInfo.name, userInfo.telNo, userInfo.email, userInfo.password], function(err){
+
+        if (userInfo.user == "User"){
+            this.db.run("INSERT INTO User (name, phone_number, email, password) VALUES (?, ?, ?, ?)", [userInfo.name, userInfo.telNo, userInfo.email, userInfo.password], function(err){
             if (err){
                 return console.log(err)
             }
-            console.log('added successfuly')
+            console.log('User added successfuly')
         });
     }
+        else{
+            this.db.run("INSERT INTO Owner (name, phone_number, email, password) VALUES (?, ?, ?, ?)", [userInfo.name, userInfo.telNo, userInfo.email, userInfo.password], function(err){
+                if (err){
+                    return console.log(err)
+                }
+                console.log('Owner add successfuly')
+            })
+        }
+    }
 
-    checkUserAccount(userInfo){
+    getUserAccount(userInfo){
         const result = this.getData("SELECT * FROM user WHERE email = ? AND password = ?", [userInfo.email, userInfo.password])
         return result;
     }

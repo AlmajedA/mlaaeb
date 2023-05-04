@@ -1,13 +1,15 @@
 import { useState } from 'react';
 import Image from 'next/image'
 import Link from 'next/link';
-
+import { Radio } from "@nextui-org/react";
 const SignUpBox = ()=> {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('')
   const [telNo, setTelNo] = useState('');
   const [password, setPassword] = useState('')
   const [confPswd, setConfPswd] = useState('')
+  const [userType, setUserType] = useState('User')
+
   const [error, setError] = useState('');
 
 
@@ -31,6 +33,8 @@ const SignUpBox = ()=> {
     setConfPswd(event.target.value)
   }
 
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -43,7 +47,7 @@ const SignUpBox = ()=> {
     try {
       const response = await fetch('/api/signup', {
         method: 'POST',
-        body: JSON.stringify({ name: name, email: email, telNo: telNo, password: password}),
+        body: JSON.stringify({ name: name, email: email, telNo: telNo, password: password, user: userType}),
         headers: { 'Content-Type': 'application/json' },
       });
       
@@ -103,6 +107,19 @@ const SignUpBox = ()=> {
                 <div className="mb-3">
                   <label htmlFor="conf-pswd" className="form-label">Confirm Password</label>
                   <input type="password" className="form-control text-bg-light" id="conf-pswd" onChange={handleConfPswdChange} required />
+                </div>
+                <div className="mb-3">
+                  <Radio.Group label="User Type" orientation="horizontal" value={userType} onChange={setUserType}>
+                  
+                    <Radio value="User" color="success" labelColor="success" >
+                      User
+                    </Radio>
+                    <Radio value="Onwer" color="success" labelColor="success" >
+                      Owner
+                    </Radio>
+                    
+                </Radio.Group>
+                  
                 </div>
                 <div className="d-grid">
                   <button type="submit" className="btn btn-outline-success btn-block">Sign up</button>
