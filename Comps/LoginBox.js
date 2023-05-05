@@ -2,6 +2,9 @@
 import Image from 'next/image'
 import Link from 'next/link';
 import { useEffect, useState } from "react";
+import { useCookies } from 'react-cookie';
+import { useRouter } from 'next/router'
+
 
 const LoginBox = ()=> {
   const [email, setEmail] = useState('')
@@ -9,6 +12,11 @@ const LoginBox = ()=> {
   const [error, setError] = useState('');
   const [userAcc, setUserAcc] = useState(null);
   
+  // cookies (new things)
+  const [cookies, setCookie, removeCookie] = useCookies(['user']);
+
+  const router = useRouter();
+
 
 
   const handleEmailChange = (event) => {
@@ -30,13 +38,14 @@ const LoginBox = ()=> {
     
       if (response.ok) {
         const userAcc = await response.json(); // Parse the response JSON object
-        console.log(userAcc)
       
         if (userAcc.name) {
           // redirect to dashboard or homepage
-          setUserAcc(userAcc);
-          localStorage.setItem("userAcc", JSON.stringify(userAcc));
-          location.replace('/');
+          setCookie('user', userAcc, {
+            path: '/',
+          });
+
+          router.replace("/");
         } else {
           setError('Email or password are incorrect');
         }

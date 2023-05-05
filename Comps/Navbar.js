@@ -2,21 +2,27 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useEffect, useState } from "react";
 import Dropdown from 'react-bootstrap/Dropdown';
+import { useCookies } from 'react-cookie';
+import { useRouter } from 'next/router'
+
 
 
 
 const Navbar = () => {
-    const [userAcc, setUserAcc] = useState(null);
-    useEffect(() => {
-        const loggedInUser = localStorage.getItem("userAcc") || null;
-        if (loggedInUser) {
-            setUserAcc(loggedInUser);
-        }
-      }, []);
+      
+  const [cookies, setCookie, removeCookie] = useCookies(['user']);
+  const [user, setUser] = useState(null)
+
+  useEffect(() => setUser(cookies.user), [])
+  const router = useRouter();
+
+
+    
 
     const signOut = () => {
-        setUserAcc(null);
-        localStorage.removeItem("userAcc");
+        setUser(null)
+        removeCookie('user');
+        router.replace("/");
       }
 
 
@@ -29,7 +35,7 @@ const Navbar = () => {
                 </Link>
                     
                 {
-                    userAcc ? (
+                    user ? (
                         
                         <Dropdown>
                             <Dropdown.Toggle style={{background: 'transparent', border: 'none', boxShadow: 'none' }} id="dropdown-basic">

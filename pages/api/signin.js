@@ -1,5 +1,4 @@
 const User = require('../../models/user');
-import { useEffect, useState, useContext} from "react";
 const user = new User();
 
 export default async (req, res) => {
