@@ -1,0 +1,16 @@
+.container h1 {
+  font-family: sans-serif;
+  font-weight: bold;
+  align-items: center;
+  justify-content: center;
+}
+
+.paymentContainer {
+  box-shadow: 5px 5px 10px 1px rgb(0, 0, 0, 20%);
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.form Button {
+  margin-top: 10px;
+}

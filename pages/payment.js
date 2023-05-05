@@ -1,19 +1,18 @@
-
-
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import styles from "../styles/Payment.module.css";
 
 const Payment = () => {
   return (
-    <Container>
-      <Row>
+    <Container className={styles.container}>
+      <Row className={styles.title}>
         <Col>
           <h1>Payment Page</h1>
         </Col>
       </Row>
-      <Row>
+      <Row className={styles.paymentContainer}>
         <Col>
-          <Form>
+          <Form className={styles.form}>
             <Form.Group controlId="formCardNumber">
               <Form.Label>Card Number</Form.Label>
               <Form.Control type="text" placeholder="Enter card number" />
@@ -30,7 +29,7 @@ const Payment = () => {
             </Form.Group>
 
             <Button variant="primary" type="submit">
-              Submit
+              Proceed to Checkout
             </Button>
           </Form>
         </Col>
