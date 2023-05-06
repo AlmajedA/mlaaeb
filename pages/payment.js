@@ -11,27 +11,43 @@ const Payment = () => {
         </Col>
       </Row>
       <Row className="my-auto">
-      <Col className="shadow-lg rounded p-5">
+        <Col className={`shadow lg rounded p-5 ${styles["shadow-right-bottom"]}`}>
           <Form className="text-center">
-
             <Form.Group controlId="formName">
               <Form.Label>Name on Card</Form.Label>
-              <Form.Control type="text" placeholder="Enter your name on card" className="custom-form-control" />
+              <Form.Control
+                type="text"
+                placeholder="Enter your name on card"
+                className="custom-form-control"
+              />
             </Form.Group>
 
             <Form.Group controlId="formCardNumber">
               <Form.Label>Card Number</Form.Label>
-              <Form.Control type="text" placeholder="Enter card number" className="custom-form-control" />
+              <Form.Control
+              
+                type="text"
+                placeholder="1234 1234 1234 1234"
+                className="custom-form-control"
+              />
             </Form.Group>
 
             <Form.Group controlId="formExpirationDate">
               <Form.Label>Expiration Date</Form.Label>
-              <Form.Control type="text" placeholder="MM/YY" className="custom-form-control" />
+              <Form.Control
+                type="text"
+                placeholder="MM / YY"
+                className="custom-form-control"
+              />
             </Form.Group>
 
             <Form.Group controlId="formCVC">
               <Form.Label>CVC</Form.Label>
-              <Form.Control type="text" placeholder="Enter CVC" className="custom-form-control" />
+              <Form.Control
+                type="text"
+                placeholder="CVC"
+                className="custom-form-control"
+              />
             </Form.Group>
 
             <Button variant="primary" type="submit" className="mt-3">
