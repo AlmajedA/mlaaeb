@@ -1,5 +1,6 @@
 import styles from "../styles/dashboard.module.css";
 import ReactStars from "../Comps/react-stars";
+import Link from 'next/link'
 const dashboard = () => {
   return (
     <div className={styles.background}>
@@ -27,7 +28,7 @@ const dashboard = () => {
             <h1>Anfield Stadium</h1>
             <ReactStars edit={false} value={4}/>
             <h4>100 SAR</h4>
-            <button className={styles.bookCourtBtn}>Book Court</button>
+            <Link className={styles.bookCourtBtn} href={"/payment"}>Book Court</Link>
           </div>
           <div className={styles.details}>
             <p className={styles.description}>

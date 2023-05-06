@@ -1,5 +1,4 @@
 import styles from "../styles/listCourtPage.module.css";
-import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 
 const listCourtPage = () => {
@@ -14,7 +13,7 @@ const listCourtPage = () => {
 
         <div className={styles.Field}>
           <label>Price: </label>
-          <input class="text-field" type="text" name="price" required />
+          <input class="text-field" type="number" name="price" required />
         </div>
 
         <div className={styles.Field}>
