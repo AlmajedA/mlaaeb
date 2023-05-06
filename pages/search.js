@@ -52,8 +52,8 @@ const Search = () => {
 
         </nav>
         
-        <Court/>
-        <Court/>
+        <Court name="KFUPM court" rating={5} price={150}/>
+        <Court name="Jawhara" rating={4} price={5000}/>
         <Court/>
         <Court/>
         

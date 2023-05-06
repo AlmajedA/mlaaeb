@@ -2,7 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 import ReactStars from "../Comps/react-stars";
 
-const Court = () => {
+const Court = ({name = "Court Name",
+                price = 100,
+                rating = 3,
+                lastUpdate = "5 min"}) => {
     return ( 
         <div className="card bg-light m-5">
             <div className="row g-0">
@@ -15,10 +18,10 @@ const Court = () => {
                     <div className="card-body d-flex flex-column h-100 justify-content-between">
                         
                         
-                            <h5 className="card-title">Court</h5>
-                            <p className="card-text">Price: 100 SAR</p>
-                            <ReactStars edit={false} value={4} size={20}/>
-                            <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
+                            <h5 className="card-title">{name}</h5>
+                            <p className="card-text">Price: {price} SAR</p>
+                            <ReactStars edit={false} value={rating} size={20}/>
+                            <p className="card-text"><small className="text-muted">Last updated {lastUpdate} ago</small></p>
                             <Link className='btn btn-success btn-lg align-self-end' href='/dashboard'>Book Now</Link>
                     </div>
                 </div>
