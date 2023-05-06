@@ -35,3 +35,4 @@ yarn-error.log*
 
 # database extension
 sql.sql
+database.db3
