@@ -25,8 +25,9 @@ const Payment = () => {
             <Form.Group controlId="formCardNumber">
               <Form.Label>Card Number</Form.Label>
               <Form.Control
+              
                 type="text"
-                placeholder="Enter card number"
+                placeholder="1234 1234 1234 1234"
                 className="custom-form-control"
               />
             </Form.Group>
@@ -35,7 +36,7 @@ const Payment = () => {
               <Form.Label>Expiration Date</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="MM/YY"
+                placeholder="MM / YY"
                 className="custom-form-control"
               />
             </Form.Group>
@@ -44,7 +45,7 @@ const Payment = () => {
               <Form.Label>CVC</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Enter CVC"
+                placeholder="CVC"
                 className="custom-form-control"
               />
             </Form.Group>
