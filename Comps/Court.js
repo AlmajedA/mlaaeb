@@ -5,7 +5,7 @@ import ReactStars from "../Comps/react-stars";
 const Court = ({name = "Court Name",
                 id = 0,
                 price = 100,
-                rating = 3,
+                rate = 3,
                 lastUpdate = "5 min"}) => {
     return ( 
         <div className="card bg-light m-5">
@@ -21,9 +21,9 @@ const Court = ({name = "Court Name",
                         
                             <h5 className="card-title">{name}</h5>
                             <p className="card-text">Price: {price} SAR</p>
-                            <ReactStars edit={false} value={rating} size={20}/>
+                            <ReactStars edit={false} value={rate} size={20}/>
                             <p className="card-text"><small className="text-muted">Last updated {lastUpdate} ago</small></p>
-                            <Link className='btn btn-success btn-lg align-self-end' href={`/courts/${id}`}>Book Now</Link>
+                            <Link className='btn btn-success btn-lg align-self-end' href={`/search/${id}`}>Book Now</Link>
                     </div>
                 </div>
             </div>

@@ -1,13 +1,14 @@
 import styles from "../../styles/dashboard.module.css";
 import ReactStars from "../../Comps/react-stars";
 
-
-const Stadium = ({name = `Stadium Name`, 
-                    price = 100,
-                    rating = 3,
-                    capacity = 18,
-                    audience = 50,
-                    bathrooms = "Yes" }) => {
+const Stadium = ({
+  name = `Stadium Name`,
+  price = 100,
+  rating = 3,
+  capacity = 18,
+  audience = 50,
+  bathrooms = "Yes",
+}) => {
   return (
     <div className={styles.background}>
       <div className={styles.container}>
@@ -32,7 +33,7 @@ const Stadium = ({name = `Stadium Name`,
 
           <div className={styles.courtInfo}>
             <h1>{name}</h1>
-            <ReactStars edit={false} value={rating}/>
+            <ReactStars edit={false} value={rating} />
             <h4>{price} SAR</h4>
             <button className={styles.bookCourtBtn}>Book Court</button>
           </div>
@@ -58,3 +59,32 @@ const Stadium = ({name = `Stadium Name`,
 };
 
 export default Stadium;
+
+import sqlite3 from "sqlite3";
+
+export async function getServerSideProps(context) {
+  const { id } = context.query;
+  const db = new sqlite3.Database("database.db3");
+
+  const getData = () => {
+    return new Promise((resolve, reject) => {
+      db.all(`SELECT * FROM Court WHERE id = ${id}`, (err, rows) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(rows);
+        }
+      });
+    });
+  };
+
+  const data = await getData();
+
+  return {
+    props: {
+      name: data[0].name,
+      price: data[0].price,
+      rating: data[0].rate,
+    },
+  };
+}
