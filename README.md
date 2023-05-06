@@ -1,7 +1,7 @@
 
 # MLAAEB
 
-This is a [Next.js] project
+This is a 'Next.js' project
 
 ## Getting Started
 
