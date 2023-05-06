@@ -30,6 +30,48 @@ const listCourtPage = () => {
         </div>
 
         <div className={styles.Field}>
+          <select
+            name="location"
+            id="city"
+            className={"form-select me-2"}
+            defaultValue={""}
+            required
+          >
+            <option value="" disabled hidden>
+              Select court location
+            </option>
+            <option value="dammam">Dammam</option>
+            <option value="khobar">Khobar</option>
+            <option value="dhahran">Dhahran</option>
+            <option value="alahasa">Al Ahsa</option>
+            <option value="saihat">Saihat</option>
+            <option value="qatif">Qatif</option>
+            <option value="riyadh">Riyadh</option>
+            <option value="jeddah">Jeddah</option>
+            <option value="medina">Medina</option>
+          </select>
+        </div>
+
+        <div className={styles.Field}>
+          <select
+            name="sport"
+            id="sport"
+            className={"form-select me-2"}
+            defaultValue={""}
+            required
+          >
+            <option value="" disabled hidden>
+              Select the sport
+            </option>
+            <option value="football">Football</option>
+            <option value="Tennis">Tennis</option>
+            <option value="basketball">Basketball</option>
+            <option value="paddle">Paddle</option>
+            <option value="volleyball">Volleyball</option>
+          </select>
+        </div>
+
+        <div className={styles.Field}>
           <label for="In-field-capacity">In-field capacity: </label>
           <input
             class="text-field"
@@ -37,6 +79,9 @@ const listCourtPage = () => {
             name="In-field-capacity"
             required
           />
+        </div>
+
+        <div className={styles.Field}>
           <label for="Out-field-capacity">Out-field capacity: </label>
           <input
             class="text-field"
@@ -44,8 +89,18 @@ const listCourtPage = () => {
             name="Out-field-capacity"
             required
           />
-          <label for="Bathrooms">Bathrooms: </label>
-          <select name="Bathrooms">
+        </div>
+
+        <div className={styles.Field}>
+          <select
+            name="Bathrooms"
+            className={"form-select me-2"}
+            defaultValue={""}
+            required
+          >
+            <option value="" disabled hidden>
+              Select bathrooms availability
+            </option>
             <option>Yes</option>
             <option>No</option>
           </select>
