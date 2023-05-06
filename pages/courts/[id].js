@@ -1,6 +1,8 @@
 import styles from "../../styles/dashboard.module.css";
 import ReactStars from "../../Comps/react-stars";
-const dashboard = ({name = `Stadium Name`, 
+
+
+const Stadium = ({name = `Stadium Name`, 
                     price = 100,
                     rating = 3,
                     capacity = 18,
@@ -55,4 +57,4 @@ const dashboard = ({name = `Stadium Name`,
   );
 };
 
-export default dashboard;
+export default Stadium;

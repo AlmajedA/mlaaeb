@@ -3,6 +3,7 @@ import Link from "next/link";
 import ReactStars from "../Comps/react-stars";
 
 const Court = ({name = "Court Name",
+                id = 0,
                 price = 100,
                 rating = 3,
                 lastUpdate = "5 min"}) => {
@@ -22,7 +23,7 @@ const Court = ({name = "Court Name",
                             <p className="card-text">Price: {price} SAR</p>
                             <ReactStars edit={false} value={rating} size={20}/>
                             <p className="card-text"><small className="text-muted">Last updated {lastUpdate} ago</small></p>
-                            <Link className='btn btn-success btn-lg align-self-end' href='/dashboard'>Book Now</Link>
+                            <Link className='btn btn-success btn-lg align-self-end' href={`/courts/${id}`}>Book Now</Link>
                     </div>
                 </div>
             </div>

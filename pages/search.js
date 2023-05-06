@@ -52,8 +52,8 @@ const Search = () => {
 
         </nav>
         
-        <Court name="KFUPM court" rating={5} price={150}/>
-        <Court name="Jawhara" rating={4} price={5000}/>
+        <Court id={1} name="KFUPM court" rating={5} price={150}/>
+        <Court id={2} name="Jawhara" rating={4} price={5000}/>
         <Court/>
         <Court/>
         
@@ -65,3 +65,5 @@ const Search = () => {
 }
  
 export default Search;
+
+
