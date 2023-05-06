@@ -15,22 +15,15 @@ class User{
 
     createNewUser(userInfo){
 
-        if (userInfo.user == "User"){
-            this.db.run("INSERT INTO User (name, phone_number, email, password) VALUES (?, ?, ?, ?)", [userInfo.name, userInfo.telNo, userInfo.email, userInfo.password], function(err){
+        
+            this.db.run("INSERT INTO User (name, phone_number, email, password, type) VALUES (?, ?, ?, ?, ?)", [userInfo.name, userInfo.telNo, userInfo.email, userInfo.password, userInfo.type], function(err){
             if (err){
                 return console.log(err)
             }
             console.log('User added successfuly')
+        
+    
         });
-    }
-        else{
-            this.db.run("INSERT INTO Owner (name, phone_number, email, password) VALUES (?, ?, ?, ?)", [userInfo.name, userInfo.telNo, userInfo.email, userInfo.password], function(err){
-                if (err){
-                    return console.log(err)
-                }
-                console.log('Owner add successfuly')
-            })
-        }
     }
 
     getUserAccount(userInfo){
