@@ -2,6 +2,9 @@ import { useState } from 'react';
 import Image from 'next/image'
 import Link from 'next/link';
 import { Radio } from "@nextui-org/react";
+import { useCookies } from 'react-cookie';
+import { useRouter } from 'next/router'
+
 const SignUpBox = ()=> {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('')
@@ -11,6 +14,12 @@ const SignUpBox = ()=> {
   const [userType, setUserType] = useState('User')
 
   const [error, setError] = useState('');
+
+  // cookies (new things)
+  const [cookies, setCookie, removeCookie] = useCookies(['user']);
+
+  const router = useRouter();
+
 
 
   const handleNameChange = (event) => {
@@ -47,14 +56,20 @@ const SignUpBox = ()=> {
     try {
       const response = await fetch('/api/signup', {
         method: 'POST',
-        body: JSON.stringify({ name: name, email: email, telNo: telNo, password: password, user: userType}),
+        body: JSON.stringify({ name: name, email: email, telNo: telNo, password: password, type: userType}),
         headers: { 'Content-Type': 'application/json' },
       });
       
 
       if (response.ok) {
+        const userAcc = await response.json(); // Parse the response JSON object
+
         // redirect to dashboard or homepage
-        location.replace("/")
+        setCookie('user', userAcc, {
+          path: '/',
+        });
+
+        router.replace("/");
     
       } else {
         setError('Invalid username or password');
@@ -111,10 +126,10 @@ const SignUpBox = ()=> {
                 <div className="mb-3">
                   <Radio.Group label="User Type" orientation="horizontal" value={userType} onChange={setUserType}>
                   
-                    <Radio value="User" color="success" labelColor="success" >
+                    <Radio value="user" color="success" labelColor="success" >
                       User
                     </Radio>
-                    <Radio value="Onwer" color="success" labelColor="success" >
+                    <Radio value="owner" color="success" labelColor="success" >
                       Owner
                     </Radio>
                     

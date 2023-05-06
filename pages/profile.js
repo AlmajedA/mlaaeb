@@ -33,7 +33,7 @@ export default function PersonalProfile() {
                   <MDBCardImage src="https://cdn2.iconfinder.com/data/icons/soccer-players/100/color-20-1024.png"
                     alt="Avatar" className="my-5" style={{ width: '120px'}} fluid />
                   <MDBTypography tag="h5">{user.name}</MDBTypography>
-                  <MDBCardText>ROLE</MDBCardText>
+                  <MDBCardText>{user.type}</MDBCardText>
                   <MDBIcon far icon="edit mb-5" />
                 </MDBCol>
                 <MDBCol md="8">
@@ -41,22 +41,15 @@ export default function PersonalProfile() {
                     <MDBTypography tag="h6">INFORMATION</MDBTypography>
                     <hr className="mt-0 mb-4" />
                     <MDBRow className="pt-1">
-                      <MDBCol size="6" className="mb-3">
+                      <MDBCol size="12" className="mb-3">
                         <MDBTypography tag="h6">EMAIL</MDBTypography>
                         <MDBCardText className="text-muted">{user.email}</MDBCardText>
                       </MDBCol>
-                      <MDBCol size="6" className="mb-3">
+                      <MDBCol size="12" className="mb-3">
                         <MDBTypography tag="h6">PHONE NUMBER</MDBTypography>
                         <MDBCardText className="text-muted">{user.phone_number}</MDBCardText>
                       </MDBCol>
-                      <MDBCol size="6" className="mb-3">
-                        <MDBTypography tag="h6">CITY</MDBTypography>
-                        <MDBCardText className="text-muted">cityName</MDBCardText>
-                      </MDBCol>
-                      <MDBCol size="6" className="mb-3">
-                        <MDBTypography tag="h6">FAVORITE SPORT</MDBTypography>
-                        <MDBCardText className="text-muted">sportName</MDBCardText>
-                      </MDBCol>
+          
                     </MDBRow>
                   </MDBCardBody>
                 </MDBCol>
