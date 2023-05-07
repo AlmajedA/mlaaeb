@@ -31,8 +31,8 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ```
 .
-├── README.md		# current file
-├── Comps		# components to break down complex user interfaces into smaller, reusable parts. 
+├── README.md	# current file
+├── Comps	# components to break down complex user interfaces into smaller, reusable parts. 
 ├── pages		
 │   ├── _app.js # application's root component.
 │   ├── 404.js # it handles non-existant URLs.
