@@ -1,13 +1,16 @@
-import styles from "../../styles/dashboard.module.css";
-import ReactStars from "../../Comps/react-stars";
+import styles from "../../../styles/dashboard.module.css";
+import ReactStars from "../../../Comps/react-stars";
+import Link from 'next/link'
+
 
 const Stadium = ({
-  name = `Stadium Name`,
-  price = 100,
-  rating = 3,
-  capacity = 18,
-  audience = 50,
-  bathrooms = "Yes",
+    id,
+    name = `Stadium Name`,
+    price = 100,
+    rating = 3,
+    capacity = 18,
+    audience = 50,
+    bathrooms = "Yes",
 }) => {
   return (
     <div className={styles.background}>
@@ -35,7 +38,7 @@ const Stadium = ({
             <h1>{name}</h1>
             <ReactStars edit={false} value={rating} />
             <h4>{price} SAR</h4>
-            <button className={styles.bookCourtBtn}>Book Court</button>
+            <Link className={styles.bookCourtBtn} href={`${id}/payment`}>Book Court</Link>
           </div>
           <div className={styles.details}>
             <p className={styles.description}>
@@ -82,9 +85,12 @@ export async function getServerSideProps(context) {
 
   return {
     props: {
-      name: data[0].name,
-      price: data[0].price,
-      rating: data[0].rate,
+
+        id: data[0].id,
+        name: data[0].name,
+        price: data[0].price,
+        rating: data[0].rate,
+
     },
   };
 }

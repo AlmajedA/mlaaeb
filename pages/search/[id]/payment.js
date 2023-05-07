@@ -1,6 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
-import styles from "../styles/Payment.module.css";
+import styles from "../../../styles/Payment.module.css";
 
 const Payment = () => {
   return (
