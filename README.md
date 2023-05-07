@@ -27,6 +27,30 @@ npm run dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 
+# Project structure
+
+```
+.
+├── README.md		# current file
+├── Comps		# components to break down complex user interfaces into smaller, reusable parts. 
+├── pages		
+│   ├── _app.js # application's root component.
+│   ├── 404.js # it handles non-existant URLs.
+│   ├── about.js # includes info related to the project.
+│   ├── dashboard.js #  includes details of a court.
+│   ├── index.js # home (main) page
+│   ├── listCourtPage.js # adding a new court page.
+│   ├── payment.js # payment page.
+│   ├── profile # shows the profile of a user.
+│   ├── search # shows the serached courts and their location.
+├── public # includes images and icons used in the project.	
+└── styles # syles for specific pages are stored here.
+└── db.js # database handling file
+  
+```
+
+
+
 To test the profile page please sign in using the following email and password:
 
 ```bash
