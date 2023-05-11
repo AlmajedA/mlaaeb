@@ -81,6 +81,6 @@
 .img2:hover,
 .img3:hover,
 .img4:hover {
-  cursor: pointer;
-  opacity: 0.8;
+  cursor: default;
+  opacity: 1.0;
 }
