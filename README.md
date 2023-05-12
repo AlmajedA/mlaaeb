@@ -67,13 +67,18 @@ Password: user # all lower case
 
 
 #### Used Dependencies:
-- "bootstrap": "^5.2.3",
-- "mdb-react-ui-kit": "^6.0.0",
-- "next": "13.2.4",
-- "prop-types": "^15.8.1",
-- "react": "18.2.0",
-- "react-bootstrap": "^2.7.2",
-- "react-dom": "18.2.0"
+        "@nextui-org/react": "^1.0.0-beta.12",
+        "bootstrap": "^5.2.3",
+        "mdb-react-ui-kit": "^6.0.0",
+        "next": "13.2.4",
+        "prop-types": "^15.8.1",
+        "react": "18.2.0",
+        "react-bootstrap": "^2.7.2",
+        "react-cookie": "^4.1.1",
+        "react-dom": "18.2.0",
+        "react-router-dom": "^6.11.0",
+        "sqlite": "^4.1.2",
+        "sqlite3": "^5.1.6"
 
 
 
