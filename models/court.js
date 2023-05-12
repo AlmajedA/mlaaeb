@@ -13,16 +13,15 @@ class Court{
         
     }
 
-    createNewCourt(courtInfo){
+    createNewCourt(courtInfo, ownerId){
 
-        
-            this.db.run("INSERT INTO User (name, id, price, rate, ownerId) VALUES (?, ?, ?, ?, ?)", [courtInfo.name, courtInfo.id, courtInfo.price, courtInfo.rate, courtInfo.ownerId], (err)=> {
-            if (err){
-                return console.log(err)
-            }
-            console.log('Court added successfuly');
-        
-    
+        this.db.run("INSERT INTO Court (name, type, location, price, rate, description, IFcapacity, OFcapacity, bathroom, ownerId) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", [this.#capitalize(courtInfo.name), courtInfo.type, courtInfo.location, courtInfo.price, 0, courtInfo.description, courtInfo.IFcapacity, courtInfo.OFcapacity, courtInfo.bathroom, ownerId], (err)=> {
+        if (err){
+            return console.log(err)
+        }
+        console.log('Court added successfuly');
+
+
         });
     }
 
@@ -48,6 +47,11 @@ class Court{
             });
         });
       }
+
+
+    #capitalize(word) {
+        return word[0].toUpperCase() + word.substring(1).toLowerCase();
+    }
 
 
 }

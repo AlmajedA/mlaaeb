@@ -6,11 +6,13 @@ import Link from 'next/link'
 const Stadium = ({
     id,
     name = `Stadium Name`,
+    type,
     price = 100,
     rating = 3,
-    capacity = 18,
-    audience = 50,
-    bathrooms = "Yes",
+    description,
+    IFcapacity = 18,
+    OFcapacity = 50,
+    bathroom = "Yes",
 }) => {
   return (
     <div className={styles.background}>
@@ -35,24 +37,21 @@ const Stadium = ({
           </div>
 
           <div className={styles.courtInfo}>
-            <h1>{name}</h1>
+            <h1>{name}, {type} Court</h1>
             <ReactStars edit={false} value={rating} />
             <h4>{price} SAR</h4>
             <Link className={styles.bookCourtBtn} href={`${id}/payment`}>Book Court</Link>
           </div>
           <div className={styles.details}>
+            <h5>Court Description</h5>
             <p className={styles.description}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-              mollitia, molestiae quas vel sint commodi repudiandae consequuntur
-              voluptatum laborum numquam blanditiis harum quisquam eius sed odit
-              fugiat iusto fuga praesentium optio, eaque rerum! Provident
-              similique accusantium nemo autem.
+              {description}
             </p>
             <h5>Court features: </h5>
             <ul>
-              <li>In-field capacity: {capacity} players</li>
-              <li>Out-field capacity: {audience} audience</li>
-              <li>Bathrooms: {bathrooms} </li>
+              <li>In-field capacity: {IFcapacity} players</li>
+              <li>Out-field capacity: {OFcapacity} audience</li>
+              <li>Bathrooms: {bathroom} </li>
             </ul>
           </div>
         </div>
@@ -88,8 +87,14 @@ export async function getServerSideProps(context) {
 
         id: data[0].id,
         name: data[0].name,
+        type: data[0].type, 
         price: data[0].price,
         rating: data[0].rate,
+        description: data[0].description,
+        IFcapacity: data[0].IFcapacity,
+        OFcapacity: data[0].OFcapacity,
+        bathroom: data[0].bathroom == 1 ? "Yes" : "No",
+
 
     },
   };

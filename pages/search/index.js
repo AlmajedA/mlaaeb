@@ -76,14 +76,12 @@ const Search = ({ data }) => {
       <h1 className="text-center my-5">Courts</h1>
 
       <div>
-        {items.map(
-          (
-            item // map through the data and display it
-          ) => (
+        {items.map( (item) => (
             <div id={item.id}>
               <Court
-                id={item.id}
+                id = {item.id}
                 name={item.name}
+                type={item.type}
                 price={item.price}
                 rate={item.rate}
               />

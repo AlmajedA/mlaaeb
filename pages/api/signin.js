@@ -6,7 +6,7 @@ export default async (req, res) => {
   
   
   if (userAcc)
-    res.json({name: userAcc.name, phone_number: userAcc.phone_number, email: userAcc.email, type: userAcc.type});
+    res.json({id:userAcc.id, name: userAcc.name, phone_number: userAcc.phone_number, email: userAcc.email, type: userAcc.type});
   else
     res.json({name: null})
 };

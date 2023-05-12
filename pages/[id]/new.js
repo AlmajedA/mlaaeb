@@ -1,14 +1,18 @@
-import styles from "../styles/listCourtPage.module.css";
+import styles from "../../styles/listCourtPage.module.css";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 
 const listCourtPage = () => {
+
+  
+
+
   return (
     <div className={styles.container}>
       <h1>Fill out the court listing</h1>
-      <form>
+      <form action="../api/new_court" method="post">
         <div className={styles.Field}>
           <label>Court Name: </label>
-          <input class="text-field" type="text" name="title" required />
+          <input class="text-field" type="text" name="name" required />
         </div>
 
         <div className={styles.Field}>
@@ -39,21 +43,21 @@ const listCourtPage = () => {
             <option value="" disabled hidden>
               Select court location
             </option>
-            <option value="dammam">Dammam</option>
-            <option value="khobar">Khobar</option>
-            <option value="dhahran">Dhahran</option>
-            <option value="alahasa">Al Ahsa</option>
-            <option value="saihat">Saihat</option>
-            <option value="qatif">Qatif</option>
-            <option value="riyadh">Riyadh</option>
-            <option value="jeddah">Jeddah</option>
-            <option value="medina">Medina</option>
+            <option value="Dammam">Dammam</option>
+            <option value="Khobar">Khobar</option>
+            <option value="Dhahran">Dhahran</option>
+            <option value="Alahasa">Al Ahsa</option>
+            <option value="Saihat">Saihat</option>
+            <option value="Qatif">Qatif</option>
+            <option value="Riyadh">Riyadh</option>
+            <option value="Jeddah">Jeddah</option>
+            <option value="Medina">Medina</option>
           </select>
         </div>
 
         <div className={styles.Field}>
           <select
-            name="sport"
+            name="type"
             id="sport"
             className={"form-select me-2"}
             defaultValue={""}
@@ -62,37 +66,37 @@ const listCourtPage = () => {
             <option value="" disabled hidden>
               Select the sport
             </option>
-            <option value="football">Football</option>
+            <option value="Football">Football</option>
             <option value="Tennis">Tennis</option>
-            <option value="basketball">Basketball</option>
-            <option value="paddle">Paddle</option>
-            <option value="volleyball">Volleyball</option>
+            <option value="Basketball">Basketball</option>
+            <option value="Paddle">Paddle</option>
+            <option value="Volleyball">Volleyball</option>
           </select>
         </div>
 
         <div className={styles.Field}>
-          <label for="In-field-capacity">In-field capacity: </label>
+          <label for="IFcapacity">In-field capacity: </label>
           <input
             class="text-field"
             type="text"
-            name="In-field-capacity"
+            name="IFcapacity"
             required
           />
         </div>
 
         <div className={styles.Field}>
-          <label for="Out-field-capacity">Out-field capacity: </label>
+          <label for="OFcapacity">Out-field capacity: </label>
           <input
             class="text-field"
             type="text"
-            name="Out-field-capacity"
+            name="OFcapacity"
             required
           />
         </div>
 
         <div className={styles.Field}>
           <select
-            name="Bathrooms"
+            name="bathroom"
             className={"form-select me-2"}
             defaultValue={""}
             required
@@ -100,8 +104,8 @@ const listCourtPage = () => {
             <option value="" disabled hidden>
               Select bathrooms availability
             </option>
-            <option>Yes</option>
-            <option>No</option>
+            <option value={1}>Yes</option>
+            <option value={0}>No</option>
           </select>
         </div>
 
