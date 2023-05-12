@@ -2,7 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 import ReactStars from "../Comps/react-stars";
 
-const Court = ({id,
+const Court = ({
+                action = "Book Now", 
+                page = `/search/${id}`,
+                id,
                 name = "Court Name",
                 type,
                 price = 100,
@@ -24,7 +27,7 @@ const Court = ({id,
                             <p className="card-text">Price: {price} SAR</p>
                             <ReactStars edit={false} value={rate} size={20}/>
                             <p className="card-text"><small className="text-muted">Last updated {lastUpdate} ago</small></p>
-                            <Link className='btn btn-success btn-lg align-self-end' href={`/search/${id}`}>Book Now</Link>
+                            <Link className='btn btn-success btn-lg align-self-end' href={page}>{action}</Link>
                     </div>
                 </div>
             </div>

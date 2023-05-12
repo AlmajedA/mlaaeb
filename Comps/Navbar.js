@@ -45,7 +45,10 @@ const Navbar = () => {
                             <Dropdown.Menu>
                                 <Dropdown.Item href="/profile">Profile</Dropdown.Item>
                                 {user.type === 'owner' && (
-                                    <Dropdown.Item href={`/${user.id}/new`}>Add Court</Dropdown.Item>
+                                    <>
+                                        <Dropdown.Item href={`/${user.id}/myCourts`}>My Courts</Dropdown.Item>
+                                        <Dropdown.Item href={`/${user.id}/new`}>Add Court</Dropdown.Item>
+                                    </>
                                 )}
                                 <Dropdown.Item as="button" onClick={signOut}>Log out</Dropdown.Item>
                             </Dropdown.Menu>
