@@ -4,8 +4,7 @@ import ReactStars from "../Comps/react-stars";
 
 const Court = ({
                 action = "Book Now", 
-                page = `/search/${id}`,
-                id,
+                page,
                 name = "Court Name",
                 type,
                 price = 100,

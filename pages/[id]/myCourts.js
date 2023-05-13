@@ -22,8 +22,8 @@ const myCourts = ({ data }) => {
             <div id={item.id}>
               <Court
                 action="Manage Court"
-                page = {`/${id}/manageCourt`}
-                id = {item.id}
+                imageURL = ""
+                page = {`/${id}/${item.id}/manageCourt`}
                 name={item.name}
                 type={item.type}
                 price={item.price}

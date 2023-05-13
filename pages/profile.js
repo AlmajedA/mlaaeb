@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from "next/head";
 import { useEffect, useState, useContext } from "react";
 import { useCookies } from 'react-cookie';
 import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBTypography, MDBIcon } from 'mdb-react-ui-kit';
@@ -15,6 +16,9 @@ export default function PersonalProfile() {
   
   return (
     <>
+    <Head>
+        <title>MLAAEB | Profile</title>
+    </Head>
 
     {
       !user ? (

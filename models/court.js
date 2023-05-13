@@ -35,6 +35,28 @@ class Court{
         return result;
     }
 
+    deleteCourt(id){
+        this.db.run(`DELETE FROM court WHERE id = ?`, [id], function(err) {
+            if (err) {
+              return console.log(err.message);
+            }
+            console.log(`the court with id: ${id} has been removed from the database`)
+            
+          });
+    }
+ 
+    updateCourt (courtInfo){
+        console.log(courtInfo)
+        const query = `UPDATE court SET name = ?, type = ?, location = ?, price = ?, rate = ?, description = ?, IFcapacity = ?, OFcapacity = ?, bathroom = ? WHERE id = ?`;
+        
+        this.db.run(query, [courtInfo.name, courtInfo.type, courtInfo.location, courtInfo.price, courtInfo.rate, courtInfo.description, courtInfo.IFcapacity, courtInfo.OFcapacity, courtInfo.bathroom, courtInfo.courtId], function(err){
+            if (err) {
+                return console.log(err.message);
+            }
+            console.log(`court with Id ${courtInfo.courtId} has been updated successfully`)
+        })
+    }
+
 
     async getData(query, given = []) {
         return new Promise((resolve, reject) => {

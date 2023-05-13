@@ -1,10 +1,13 @@
-import styles from "../../styles/dashboard.module.css";
-import ReactStars from "../../Comps/react-stars";
+import styles from "../../../styles/dashboard.module.css";
+import ReactStars from "../../../Comps/react-stars";
 import Link from 'next/link'
+import { useRouter } from 'next/router';
+import Head from "next/head";
+
+
 
 
 const Stadium = ({
-    id,
     name = `Stadium Name`,
     type,
     price = 100,
@@ -15,10 +18,26 @@ const Stadium = ({
     bathroom = "Yes",
 }) => {
 
-const onDelete = () => {
+  const router = useRouter();
+  const { courtId, id } = router.query;
+  const onDelete = () => {
+      if (confirm('Are you sure you want to delete this court?')){
+          fetch("../../api/delete_court", {
+              method: "Delete",
+              body: JSON.stringify(parseInt(courtId)),
+          });
+
+          location.href = '/';
+
+      }
+    
 
 }
   return (
+    <>
+    <Head>
+        <title>MLAAEB | Manage Court</title>
+    </Head>
     <div className={styles.background}>
       <div className={styles.container}>
         <div className={styles.box}>
@@ -44,7 +63,7 @@ const onDelete = () => {
             <h1>{name}, {type} Court</h1>
             <ReactStars edit={false} value={rating} />
             <h4>{price} SAR</h4>
-            <Link className={styles.bookCourtBtn} href={`/${id}/new`}>Edit</Link>
+            <Link className={styles.bookCourtBtn} href={`/${id}/${courtId}/edit`}>Edit</Link>
             
 
           </div>
@@ -59,11 +78,12 @@ const onDelete = () => {
               <li>Out-field capacity: {OFcapacity} audience</li>
               <li>Bathrooms: {bathroom} </li>
             </ul>
-            <Button className="btn btn-danger">Delete</Button>
+            <Button className="btn btn-danger" onClick={onDelete}>Delete</Button>
           </div>
         </div>
       </div>
     </div>
+    </>
   );
 };
 
@@ -73,12 +93,13 @@ import sqlite3 from "sqlite3";
 import { Button } from "react-bootstrap";
 
 export async function getServerSideProps(context) {
-  const { id } = context.query;
+  const { courtId } = context.query;
+
   const db = new sqlite3.Database("database.db3");
 
   const getData = () => {
     return new Promise((resolve, reject) => {
-      db.all(`SELECT * FROM Court WHERE id = ${id}`, (err, rows) => {
+      db.get(`SELECT * FROM Court WHERE id = ${courtId}`, (err, rows) => {
         if (err) {
           reject(err);
         } else {
@@ -93,15 +114,15 @@ export async function getServerSideProps(context) {
   return {
     props: {
 
-        id: data[0].id,
-        name: data[0].name,
-        type: data[0].type, 
-        price: data[0].price,
-        rating: data[0].rate,
-        description: data[0].description,
-        IFcapacity: data[0].IFcapacity,
-        OFcapacity: data[0].OFcapacity,
-        bathroom: data[0].bathroom == 1 ? "Yes" : "No",
+        id: courtId,
+        name: data.name,
+        type: data.type, 
+        price: data.price,
+        rating: data.rate,
+        description: data.description,
+        IFcapacity: data.IFcapacity,
+        OFcapacity: data.OFcapacity,
+        bathroom: data.bathroom == 1 ? "Yes" : "No",
 
 
     },

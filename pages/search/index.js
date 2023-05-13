@@ -79,7 +79,7 @@ const Search = ({ data }) => {
         {items.map( (item) => (
             <div id={item.id}>
               <Court
-                id = {item.id}
+                page={`/search/${item.id}`}
                 name={item.name}
                 type={item.type}
                 price={item.price}
