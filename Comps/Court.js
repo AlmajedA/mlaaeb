@@ -14,7 +14,7 @@ const Court = ({
         <div className="card bg-light m-5">
             <div className="row g-0">
                 <div className="col-md-4">
-                    <img src='footballCourt.jpg' className="img-fluid rounded-start"/>
+                    <img src='/footballCourt.jpg' className="img-fluid rounded-start"/>
                 </div>
             
 
