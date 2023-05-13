@@ -19,18 +19,18 @@ const listCourtPage = () => {
       <form action="../api/new_court" method="POST">
         <div className={styles.Field}>
           <label>Court Name: </label>
-          <input class="text-field" type="text" name="name" required />
+          <input className="text-field" type="text" name="name" required />
         </div>
 
         <div className={styles.Field}>
           <label>Price: </label>
-          <input class="text-field" type="number" name="price" required />
+          <input className="text-field" type="number" name="price" required />
         </div>
 
         <div className={styles.Field}>
           <label>Description: </label>
           <textarea
-            class="text-field"
+            className="text-field"
             type="text"
             name="description"
             cols={10}
@@ -82,9 +82,9 @@ const listCourtPage = () => {
         </div>
 
         <div className={styles.Field}>
-          <label for="IFcapacity">In-field capacity: </label>
+          <label htmlFor="IFcapacity">In-field capacity: </label>
           <input
-            class="text-field"
+            className="text-field"
             type="text"
             name="IFcapacity"
             required
@@ -92,9 +92,9 @@ const listCourtPage = () => {
         </div>
 
         <div className={styles.Field}>
-          <label for="OFcapacity">Out-field capacity: </label>
+          <label htmlFor="OFcapacity">Out-field capacity: </label>
           <input
-            class="text-field"
+            className="text-field"
             type="text"
             name="OFcapacity"
             required
