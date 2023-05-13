@@ -27,35 +27,36 @@ npm run dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 
-# Project structure
+# Pages structure
 
 ```
-.
-├── README.md	# current file
-├── Comps	# components to break down complex user interfaces into smaller, reusable parts. 
-├── pages		
-│   ├── _app.js # application's root component.
-│   ├── 404.js # it handles non-existant URLs.
-│   ├── about.js # includes info related to the project.
-│   ├── dashboard.js # includes details of a court.
-│   ├── index.js # home (main) page
-│   ├── listCourtPage.js # adding a new court page.
-│   ├── payment.js # payment page.
-│   ├── profile # shows the profile of a user.
-│   ├── search # shows the serached courts and their location.
-├── public # includes images and icons used in the project.	
-└── styles # styles for specific pages are stored here.
-└── db.js # database handling file.
+pages
+ ┣ [id]
+ ┃ ┣ [courtId]
+ ┃ ┃ ┣ edit.js
+ ┃ ┃ ┗ manageCourt.js
+ ┃ ┣ myCourts.js
+ ┃ ┗ new.js
+ ┣ api
+ ┃ ┣ delete_court.js
+ ┃ ┣ new_court.js
+ ┃ ┣ signin.js
+ ┃ ┣ signup.js
+ ┃ ┗ update_court.js
+ ┣ registration
+ ┃ ┣ login.js
+ ┃ ┗ signup.js
+ ┣ search
+ ┃ ┣ [id]
+ ┃ ┃ ┣ index.js
+ ┃ ┃ ┗ payment.js
+ ┃ ┗ index.js
+ ┣ 404.js
+ ┣ _app.js
+ ┣ about.js
+ ┣ index.js
+ ┗ profile.js
   
-```
-
-
-
-To test the profile page please sign in using the following email and password:
-
-```bash
-Email: user@gmail.com
-Password: user # all lower case
 ```
 
 
