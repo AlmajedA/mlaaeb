@@ -32,7 +32,7 @@ To start using our website please create an account as **owner**, then try to cr
 
 
 
-# Projcet structure
+# Projcet Structure
 
 ```
 .
