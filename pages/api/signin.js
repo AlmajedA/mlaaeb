@@ -3,6 +3,7 @@ const user = new User();
 
 export default async (req, res) => {
   const userAcc = (await user.getUserAccount(req.body))[0];
+
   
   
   if (userAcc)

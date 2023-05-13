@@ -50,7 +50,7 @@ export async function getServerSideProps(context) {
     // get data
     const getData = () => {
         return new Promise((resolve, reject) => {
-            db.all(`SELECT * FROM Court WHERE ownerId = ${id}`, (err, rows) => {
+            db.all(`SELECT * FROM Court WHERE court.ownerId = ${id}`, (err, rows) => {
             if (err) {
                 reject(err);
             } else {

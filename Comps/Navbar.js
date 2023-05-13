@@ -23,7 +23,7 @@ const Navbar = () => {
         setUser(null)
         removeCookie('user');
         router.replace("/");
-      }
+    }
 
 
 
