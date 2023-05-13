@@ -27,35 +27,63 @@ npm run dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 
-# Pages structure
+# Get Started
+To start using our website please create an account as **owner**, then try to create a court and view the court in my court page.
+
+
+
+# Projcet structure
 
 ```
-pages
- ┣ [id]
- ┃ ┣ [courtId]
- ┃ ┃ ┣ edit.js
- ┃ ┃ ┗ manageCourt.js
- ┃ ┣ myCourts.js
- ┃ ┗ new.js
- ┣ api
- ┃ ┣ delete_court.js
- ┃ ┣ new_court.js
- ┃ ┣ signin.js
- ┃ ┣ signup.js
- ┃ ┗ update_court.js
- ┣ registration
- ┃ ┣ login.js
- ┃ ┗ signup.js
- ┣ search
- ┃ ┣ [id]
- ┃ ┃ ┣ index.js
- ┃ ┃ ┗ payment.js
- ┃ ┗ index.js
- ┣ 404.js
- ┣ _app.js
- ┣ about.js
- ┣ index.js
- ┗ profile.js
+.
+├── Comps
+│   ├── Court.js
+│   ├── Footer.js
+│   ├── Layout.js
+│   ├── LoginBox.js
+│   ├── Navbar.js
+│   ├── SignUpBox.js
+│   └── react-stars.js
+├── README.md
+├── database.db3
+├── db.js
+├── models
+│   ├── court.js
+│   └── user.js
+├── package-lock.json
+├── package.json
+├── pages
+│   ├── 404.js
+│   ├── [id]
+│   │   ├── [courtId]
+│   │   │   ├── edit.js
+│   │   │   └── manageCourt.js
+│   │   ├── myCourts.js
+│   │   └── new.js
+│   ├── _app.js
+│   ├── about.js
+│   ├── api
+│   │   ├── delete_court.js
+│   │   ├── new_court.js
+│   │   ├── signin.js
+│   │   ├── signup.js
+│   │   └── update_court.js
+│   ├── index.js
+│   ├── profile.js
+│   ├── registration
+│   │   ├── login.js
+│   │   └── signup.js
+│   └── search
+│       ├── [id]
+│       │   ├── index.js
+│       │   └── payment.js
+│       └── index.js
+└── styles
+    ├── dashboard.module.css
+    ├── footer.module.css
+    ├── globals.css
+    ├── listCourtPage.module.css
+    └── payment.module.css
   
 ```
 
